@@ -48,9 +48,9 @@ def l1_loss(learned_activations: Float[Tensor, "*batch learned_activations"]) ->
         learned_activations: Activations from the hidden layer.
 
     Returns:
-        L1 loss on learned activations.
+        L1 loss on learned activations, summed over the last dimension and averaged over all other elements.
     """
-    return torch.abs(learned_activations).sum(dim=-1)
+    return torch.abs(learned_activations).sum(dim=-1).mean()
 
 def l0(learned_activations: Float[Tensor, "*batch learned_activations"]) -> Tensor:
     """L0 of Learned Activations, ie average number of neurons firing.
@@ -104,4 +104,4 @@ def sae_training_loss(
         Overall training loss.
     """
     total_loss = reconstruction_loss_mse + l1_loss_learned_activations * l1_coefficient
-    return total_loss.sum()
+    return total_loss
