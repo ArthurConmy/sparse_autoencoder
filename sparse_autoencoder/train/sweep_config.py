@@ -31,7 +31,7 @@ DEFAULT_STORE_SIZE: int = round_to_multiple(3_000_000, DEFAULT_BATCH_SIZE)
 class ActivationResamplerHyperparameters(NestedParameter):
     """Activation resampler hyperparameters."""
 
-    resample_interval: Parameter[int] = field(
+    resample_interval: Parameter[int] = field( # Let's do 10K, 20K, 50K, 75K, 100K
         default=Parameter(round_to_multiple(200_000_000, DEFAULT_STORE_SIZE))
     )
     """Resample interval."""

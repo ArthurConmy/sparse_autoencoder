@@ -41,5 +41,10 @@
   "python.testing.pytestEnabled": true,
   "rewrap.autoWrap.enabled": true,
   "rewrap.wrappingColumn": 100,
-  "python.analysis.diagnosticMode": "workspace"
+  "python.analysis.diagnosticMode": "workspace",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#332B36",
+    "titleBar.activeBackground": "#473C4B",
+    "titleBar.activeForeground": "#FBFAFB"
+  }
 }

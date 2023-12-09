@@ -292,7 +292,11 @@ class Pipeline:
         losses_with_zero_ablation: list[float] = []
         source_model_device: torch.device = get_model_device(self.source_model)
 
-        for batch in self.source_data:
+        # print("LIST LENGTH", len(list(self.source_data)), flush=True)
+        for idx, batch in enumerate(self.source_data):
+            print("IDX", idx, flush=True)
+            if idx > 10:
+                assert False
             input_ids: Int[Tensor, Axis.names(Axis.SOURCE_DATA_BATCH, Axis.POSITION)] = batch[
                 "input_ids"
             ].to(source_model_device)
